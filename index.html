@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gartic Salas</title>
+    <link rel="icon" href="https://gartic.com.br/imgs/mural/ii/iikyuung/estranho-mundo-de-jack.png" type="image/png">
+    
+    <!-- Importar a fonte do Google Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: 'Google Sans', sans-serif !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-size: calc(12px + 2vmin);
+            padding: 1em;
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        h1 {
+            font-family: 'Google Sans', sans-serif;
+            color: brown; /* Alterando a cor para marrom */
+            margin-bottom: 0.5em;
+            text-align: center; /* Centralizar o texto */
+        }
+
+        table {
+            width: 100%;
+            max-width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+            border: 3px solid #8B4513;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            word-wrap: break-word;
+            background-color: #FFF;
+        }
+
+        th {
+            background-color: #8B4513;
+            color: #FFF;
+        }
+
+        .avatar {
+            margin-right: 0.5em;
+            border-radius: 50%;
+            width: 30px; /* Tamanho fixo do avatar */
+            height: 30px; /* Tamanho fixo do avatar */
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .player-info {
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 40px); /* Ajusta o tamanho do nome do jogador */
+            white-space: nowrap; /* Evita que o texto quebre */
+            overflow: hidden; /* Oculta o texto que excede a largura da célula */
+            text-overflow: ellipsis; /* Mostra "..." se o texto estiver cortado */
+        }
+
+        select {
+            font-size: 1em; /* Tamanho do texto do seletor */
+            margin-bottom: 1em;
+            padding: 6px; /* Espaçamento interno do seletor */
+        }
+
+        #closeBtn {
+            padding: 10px; /* Tamanho do botão de fechar sala */
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Gartic Salas</h1>
+    <a href="https://kelbovin.github.io/garticnick/" style="color: purple; text-decoration: underline;">Clique aqui: Buscador de Jogadores Jogando</a>
+    <p>Escolha uma sala:</p>
+    <select id="garticCode" onchange="handleSelectChange()">
+        <option value="">Selecione uma Sala</option>
+
+<!-- GERAL -->
+<option value="038394720">GERAL 1</option>
+<option value="038394725">GERAL 2</option>
+<option value="03">GERAL 3</option>
+<option value="038394729">GERAL 4</option>
+<option value="05">GERAL 5</option>
+<option value="038394732">GERAL 6</option>
+<option value="046">GERAL 7</option>
+<option value="038394736">GERAL 8</option>
+<option value="08">GERAL 9</option>
+<option value="038394739">GERAL 10</option>
+<option value="010">GERAL 11</option>
+<option value="038394741">GERAL 12</option>
+<option value="012">GERAL 13</option>
+<option value="038394742">GERAL 14</option>
+<option value="014">GERAL 15</option>
+<option value="015">GERAL 16</option>
+<option value="047">GERAL 17</option>
+<option value="017">GERAL 18</option>
+<option value="038394745">GERAL 19</option>
+<option value="038394746">GERAL 20</option>
+<option value="044">GERAL 21</option>
+<option value="045">GERAL 22</option>
+<option value="022657">GERAL 23</option>
+<option value="027541">GERAL 24</option>
+<option value="027542">GERAL 25</option>
+<option value="030960">GERAL 26</option>
+<option value="037197">GERAL 27</option>
+<option value="059774">GERAL 28</option>
+<option value="060131">GERAL 29</option>
+<option value="0156331">GERAL 36</option>
+<option value="0156332">GERAL 37</option>
+<option value="01441917">GERAL 108</option>
+<option value="01482259">GERAL 117</option>
+<option value="01482262">GERAL 118</option>
+<option value="01495485">GERAL 123</option>
+<option value="01495493">GERAL 125</option>
+<option value="01495497">GERAL 126</option>
+<option value="01495505">GERAL 127</option>
+<option value="01495758">GERAL 129</option>
+<option value="01495822">GERAL 132</option>
+<option value="01495983">GERAL 133</option>
+<option value="01495996">GERAL 134</option>
+<option value="01496355">GERAL 143</option>
+<option value="01496372">GERAL 145</option>
+<option value="01496382">GERAL 147</option>
+<option value="019472071">GERAL 148</option>
+<option value="019472077">GERAL 149</option>
+<option value="019472087">GERAL 150</option>
+<option value="019472095">GERAL 151</option
+<option value="019472099">GERAL 152</option>
+<option value="019472106">GERAL 153</option>
+<option value="019472132">GERAL 154</option>
+
+<!-- OBJ -->
+<option value="023">OBJETOS 1</option>
+<option value="024">OBJETOS 2</option>
+<option value="026">OBJETOS 4</option>
+<option value="028">OBJETOS 6</option>
+<option value="029">OBJETOS 7</option>
+<option value="030">OBJETOS 8</option>
+<option value="0156348">OBJETOS 19</option>
+<option value="0156349">OBJETOS 20</option>
+<option value="01323822">OBJETOS 33</option>
+<option value="01433234">OBJETOS 46</option>
+<option value="01441928">OBJETOS 49</option>
+<option value="01495442">OBJETOS 52</option>
+<option value="08275914">OBJETOS 60</option>
+<option value="08870952">OBJETOS 61</option>
+<option value="08870959">OBJETOS 62</option>
+<option value="08870981">OBJETOS 64</option>
+<option value="015392586">OBJETOS 65</option>
+<option value="015392590">OBJETOS 66</option>
+<option value="018828862">OBJETOS 67</option>
+<option value="018828871">OBJETOS 68</option>
+<option value="018828877">OBJETOS 69</option>
+<option value="018828880">OBJETOS 70</option>
+
+<!-- ALIMENTOS -->
+<option value="032">ALIMENTOS 1</option>
+<option value="011436440">ALIMENTOS 2</option>
+<option value="011436448">ALIMENTOS 3</option>
+<option value="029617">ALIMENTOS 4</option>
+<option value="011436456">ALIMENTOS 5</option>
+<option value="011436462">ALIMENTOS 6</option>
+<option value="011436468">ALIMENTOS 7</option>
+<option value="011436470">ALIMENTOS 8</option>
+<option value="011436483">ALIMENTOS 9</option>
+<option value="011436488">ALIMENTOS 10</option>
+<option value="01482291">ALIMENTOS 34</option>
+<option value="01495597">ALIMENTOS 39</option>
+<option value="011436741">ALIMENTOS 43</option>
+<option value="011436744">ALIMENTOS 44</option>
+<option value="08871018">ALIMENTOS 45</option>
+<option value="08871024">ALIMENTOS 46</option>
+<option value="010583457">ALIMENTOS 47</option>
+<option value="010583459">ALIMENTOS 48</option>
+<option value="015352976">ALIMENTOS 49</option>
+<option value="015352985">ALIMENTOS 50</option>
+<option value="015392408">ALIMENTOS 61</option>
+<option value="015392415">ALIMENTOS 62</option>
+<option value="015392529">ALIMENTOS 63</option>
+<option value="015392541">ALIMENTOS 64</option>
+<option value="019472533">ALIMENTOS 85</option>
+<option value="019472540">ALIMENTOS 86</option>
+<option value="019472552">ALIMENTOS 87</option>
+<option value="019472562">ALIMENTOS 88</option>
+<option value="019474604">ALIMENTOS 101</option>
+<option value="019474618">ALIMENTOS 102</option>
+<option value="019474632">ALIMENTOS 103</option>
+<option value="019474640">ALIMENTOS 104</option>
+
+<!-- ANIMAIS -->
+<option value="033">ANIMAIS 1</option>
+<option value="011436131">ANIMAIS 2</option>
+<option value="011436139">ANIMAIS 3</option>
+<option value="011436146">ANIMAIS 4</option>
+<option value="011436155">ANIMAIS 5</option>
+<option value="061314">ANIMAIS 6</option>
+<option value="011436159">ANIMAIS 7</option>
+<option value="011436158">ANIMAIS 8</option>
+<option value="011436189">ANIMAIS 12</option>
+<option value="011436193">ANIMAIS 13</option>
+<option value="01383125">ANIMAIS 33</option>
+<option value="01482285">ANIMAIS 34</option>
+<option value="011436784">ANIMAIS 43</option>
+<option value="08275850">ANIMAIS 44</option>
+<option value="08871009">ANIMAIS 45</option>
+<option value="011436796">ANIMAIS 46</option>
+<option value="010583449">ANIMAIS 47</option>
+<option value="010583451">ANIMAIS 48</option>
+<option value="015352954">ANIMAIS 49</option>
+<option value="015352967">ANIMAIS 50</option>
+
+<!-- VERBOS -->
+<option value="023340">VERBOS 1</option>
+<option value="064453">VERBOS 2</option>
+<option value="064456">VERBOS 3</option>
+<option value="011436709">VERBOS 5</option>
+<option value="01442892">VERBOS 16</option>
+
+<!-- PROFISSÔES -->
+<option value="0180144">PROFISSÔES 1</option>
+<option value="011436612">PROFISSÔES 2</option>
+<option value="011436645">PROFISSÔES 4</option>
+<option value="011436654">PROFISSÔES 8</option>
+<option value="08141297">PROFISSÔES 9</option>
+<option value="010583436">PROFISSÔES 10</option>
+
+<!-- D.A (Desenhos Animados) -->
+<option value="034">D.A 1</option>
+<option value="035">D.A 2</option>
+<option value="01316875">D.A 7</option>
+<option value="015146618">D.A 10</option>
+<option value="015269596">D.A 12</option>
+<option value="015269602">D.A 13</option>
+<option value="015352879">D.A 15</option>
+<option value="015352887">D.A 16</option>
+
+        <!-- FILMES -->
+<option value="020">FILMES 1</option>
+<option value="021">FILMES 2</option>
+<option value="01316871">FILMES 7</option>
+<option value="01483601">FILMES 14</option>
+
+<!-- Game of Thrones -->
+<option value="05247712">GOT 1</option>
+<option value="05247714">GOT 2</option>
+
+<!-- BANDEIRAS -->
+<option value="053">BANDEIRAS 1</option>
+<option value="032829">BANDEIRAS 2</option>
+
+<!-- MÚSICA -->
+<option value="042463">MUSICA 1</option>
+
+<!-- AVANÇADO -->
+<option value="036">AVÇ 1</option>
+<option value="037">AVÇ 2</option>
+<option value="038">AVÇ 3</option>
+
+<!-- ESPANHOL -->
+<option value="0111150">ESPANHOL 1</option>
+
+<!-- CARICATURAS -->
+<option value="031">CARICATURAS 1</option>
+
+<!-- HARRY POTTER -->
+<option value="0204642">HP 1</option>
+<option value="0368492">HP 2</option>
+
+<!-- ITALIANO -->
+<option value="01254112">ITALIANO 1</option>
+
+<!-- INGLÊS -->
+<option value="059">INGLES 1</option>
+
+<!-- NOVELAS -->
+<option value="0361146">NOVELA 1</option>
+<option value="0368493">NOVELA 2</option>
+
+<!-- POKEMON -->
+<option value="051">POKEMON 1</option>
+<option value="04539464">POKEMON 2</option>
+
+<!-- ADJETIVOS -->
+<option value="024201">ADJETIVOS 1</option>
+
+<!-- MARVEL E DC -->
+<option value="03158864">MDC1</option>
+<option value="03158865">MDC2</option>
+<option value="03161447">MDC4</option>
+
+<!-- GAMES -->
+<option value="055">GAMES 1</option>
+
+
+    </select>
+    <button id="closeBtn" onclick="closeRoom()">Fechar Sala</button>
+    <table id="garticTable">
+        <tr>
+            <th></th>
+            <th>Posição</th>
+            <th>Jogadores</th>
+            <th>Pontos</th>
+        </tr>
+    </table>
+    <div id="status"></div>
+<div id="garticLink">Link de Sala: <a id="linkText" href="#" target="_blank">Link de Sala</a></div>
+
+    <script>
+        function handleSelectChange() {
+            fetchGarticInfo();
+        }
+
+        function closeRoom() {
+            // Lógica para fechar a sala selecionada
+        }
+
+       function fetchGarticInfo() {
+    var select = document.getElementById('garticCode');
+    var garticCode = select.value;
+
+    // Símbolos a serem adicionados aos jogadores correspondentes
+    var playersToAddSymbols = {
+        'Keltek': '👑',
+        'Quely': '👑',
+        'Rayruim': '👑',
+        'unsenses': '👑',
+        'Decenty': '👑',
+        'ray999': '❤️',
+        'rayi_': '❤️',
+        'raypg': '❤️❤️❤️❤️❤️❤️'
+        // Adicione outros jogadores e símbolos conforme necessário
+    };
+
+    // Verifica se há uma sala selecionada
+    if (garticCode) {
+        var url = 'https://gartic.com.br/info_sala.php?x=&id_sala=' + garticCode;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                var table = document.getElementById('garticTable');
+                var status = document.getElementById('status');
+                var link = document.getElementById('linkText');
+
+                table.innerHTML = '<tr><th>Posição</th><th>Jogadores</th><th>Pontos</th></tr>';
+
+                data.jogadores.forEach((jogador, index) => {
+                    var row = table.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+
+                    cell1.innerHTML = index + 1;
+
+                    // Verifica se o jogador está na lista de símbolos e adiciona os símbolos correspondentes
+                    var playerName = jogador.toLowerCase();
+                    var symbolToAdd = playersToAddSymbols[playerName];
+                    var playerNameWithSymbol = jogador;
+
+                    if (symbolToAdd) {
+                        playerNameWithSymbol += '     ' + symbolToAdd;
+                    }
+
+                    cell2.innerHTML = '<div class="player"><img src="https://gartic.com.br/avatar.php?nick=' + jogador + '" class="avatar">' +
+                        '<a href="https://gartic.com.br/' + jogador + '" class="player" target="_blank">' + playerNameWithSymbol + '</a></div>';
+                    cell3.innerHTML = data.pontos[index] + ' pontos';
+                });
+
+                        var vacancies = 10 - data.jogadores.length;
+                        if (vacancies > 0) {
+                            status.innerHTML = 'Há ' + vacancies + ' vagas disponíveis.';
+                            status.style.color = 'green';
+                        } else if (data.jogadores.length === 10) {
+                            status.innerHTML = 'A sala está cheia.';
+                            status.style.color = 'red';
+                        } else {
+                            status.innerHTML = 'A sala está muito cheia.';
+                            status.style.color = 'purple';
+                        }
+
+                        link.innerHTML = 'https://gartic.com.br/' + garticCode;
+                        link.href = 'https://gartic.com.br/' + garticCode;
+
+                        // Atualiza o texto das opções no select com o número de jogadores
+                        updateSelectOptions(data.salas);
+                    })
+                    .catch((error) => {
+                        console.error('Erro:', error);
+                    });
+            }
+        }
+
+        function openRoomLink() {
+            var garticCode = document.getElementById('garticCode').value;
+            window.open('https://gartic.com.br/' + garticCode, '_blank');
+        }
+
+        function updateSelectOptions(salas) {
+            var select = document.getElementById('garticCode');
+
+            // Ordena as salas ativas no começo e com base na quantidade de jogadores
+            salas.sort((a, b) => {
+                var playersA = a.jogadores.length;
+                var playersB = b.jogadores.length;
+
+                return playersB - playersA;
+            });
+
+            // Remove todas as opções atuais do select
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+
+            // Adiciona as opções atualizadas no select
+            salas.forEach(sala => {
+                var option = document.createElement('option');
+                option.value = sala.id;
+                option.innerHTML = sala.nome + ' (' + sala.total_jogadores + ')';
+
+                // Adiciona classe de estilo com base na quantidade de jogadores
+                if (sala.jogadores.length >= 10) {
+                    option.classList.add('ten-or-more-players');
+                } else {
+                    option.classList.add('less-than-ten-players');
+                }
+
+                select.appendChild(option);
+            });
+        }
+
+        // Lógica para preenchimento inicial do select com as salas disponíveis
+        var salas = [
+            // Estrutura de salas: { id: 'id_da_sala', nome: 'Nome da Sala', jogadores: [], total_jogadores: numero_total_de_jogadores }
+            // Adicione aqui as salas disponíveis com seus respectivos detalhes
+        ];
+
+        salas.forEach(sala => {
+            var option = document.createElement('option');
+            option.value = sala.id;
+            option.innerHTML = sala.nome + ' (' + sala.total_jogadores + ')';
+
+            document.getElementById('garticCode').appendChild(option);
+        });
+
+        // Inicializa a função fetchGarticInfo para a sala selecionada
+        fetchGarticInfo();
+        // Lógica para atualização automática das informações da sala a cada segundo
+        setInterval(fetchGarticInfo, 10000); // Mude o intervalo conforme necessário
+    </script>
+</body>
+
+</html>
