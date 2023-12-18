@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gartic Salas</title>
     <link rel="icon" href="https://gartic.com.br/imgs/mural/ii/iikyuung/estranho-mundo-de-jack.png" type="image/png">
-    
+
     <!-- Importar a fonte do Google Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans&display=swap" rel="stylesheet">
 
@@ -26,10 +27,20 @@
         }
 
         h1 {
-            font-family: 'Google Sans', sans-serif;
-            color: brown; /* Alterando a cor para marrom */
-            margin-bottom: 0.5em;
-            text-align: center; /* Centralizar o texto */
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            color: brown;
+        }
+
+        #jogadoresOnline {
+            color: black; /* Alterando a cor do número de jogadores online para preto */
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            margin-top: auto;
         }
 
         table {
@@ -76,6 +87,7 @@
             font-size: 1em; /* Tamanho do texto do seletor */
             margin-bottom: 1em;
             padding: 6px; /* Espaçamento interno do seletor */
+            border: 2px solid brown; /* Alterando a cor da borda do seletor para marrom */
         }
 
         #closeBtn {
@@ -89,9 +101,12 @@
 </head>
 
 <body>
-    <h1>Gartic Salas</h1>
+<h1>Gartic Salas</h1>
+    <!-- Adicionando a parte de jogadores online -->
+    <h1>Jogadores Online: <span id="jogadoresOnline">Carregando...</span></h1>
     <a href="https://gtcmod.github.io/garticbusc/" style="color: purple; text-decoration: underline;">Clique aqui: Buscador de Jogadores Jogando</a>
-    <p>Escolha uma sala:</p>
+    <a href="https://gtcmod.github.io/gtcvet/" style="color: purple; text-decoration: underline;">Clique aqui: Gartic Salas VET</a>
+    <p style="color: brown;">Escolha uma sala:</p>
     <select id="garticCode" onchange="handleSelectChange()">
         <option value="">Selecione uma Sala</option>
 
@@ -326,6 +341,28 @@
 <div id="garticLink">Link de Sala: <a id="linkText" href="#" target="_blank">Link de Sala</a></div>
 
     <script>
+    function atualizarJogadoresOnline() {
+            fetch('https://gartic.com.br/request/mobile/ping.php')
+                .then(response => response.json())
+                .then(data => {
+                    var jogadoresOnline = data.jogando;
+                    var jogadoresOnlineElement = document.getElementById("jogadoresOnline");
+
+                    if (jogadoresOnline <= 2400) {
+                        jogadoresOnlineElement.style.color = 'black';
+                    } else if (jogadoresOnline <= 3500) {
+                        jogadoresOnlineElement.style.color = 'red';
+                    } else {
+                        jogadoresOnlineElement.style.color = 'purple';
+                    }
+
+                    jogadoresOnlineElement.textContent = jogadoresOnline;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados:', error);
+                });
+        }
+        
         function handleSelectChange() {
             fetchGarticInfo();
         }
@@ -338,20 +375,20 @@
     var select = document.getElementById('garticCode');
     var garticCode = select.value;
 
-    // Símbolos a serem adicionados aos jogadores correspondentes
     var playersToAddSymbols = {
-        'Keltek': '👑',
-        'Quely': '👑',
-        'Rayruim': '👑',
-        'unsenses': '👑',
-        'Decenty': '👑',
-        'ray999': '❤️',
-        'rayi_': '❤️',
-        'raypg': '❤️❤️❤️❤️❤️❤️'
+        'keltek': '👑 🏠',
+        'quely': '👑 ⚾️',
+        'rayruim': '👑',
+        'unsenses': '👑🏠',
+        'RayPG': '👑 ❤️',
+        'Mirella_': '👑',
+        'Hlozek': '🏠',
+        'imaturidade_': '🐼 ⚾️ 🍓🎈 🐭 🏠',
+        'Menina16': '👑',
+        'decenty': '👑 🐼',
         // Adicione outros jogadores e símbolos conforme necessário
     };
 
-    // Verifica se há uma sala selecionada
     if (garticCode) {
         var url = 'https://gartic.com.br/info_sala.php?x=&id_sala=' + garticCode;
 
@@ -373,12 +410,12 @@
                     cell1.innerHTML = index + 1;
 
                     // Verifica se o jogador está na lista de símbolos e adiciona os símbolos correspondentes
-                    var playerName = jogador.toLowerCase();
+                    var playerName = jogador.toLowerCase(); // Converter para letras minúsculas
                     var symbolToAdd = playersToAddSymbols[playerName];
                     var playerNameWithSymbol = jogador;
 
                     if (symbolToAdd) {
-                        playerNameWithSymbol += '     ' + symbolToAdd;
+                        playerNameWithSymbol += ' ' + symbolToAdd;
                     }
 
                     cell2.innerHTML = '<div class="player"><img src="https://gartic.com.br/avatar.php?nick=' + jogador + '" class="avatar">' +
@@ -465,7 +502,9 @@
         // Inicializa a função fetchGarticInfo para a sala selecionada
         fetchGarticInfo();
         // Lógica para atualização automática das informações da sala a cada segundo
-        setInterval(fetchGarticInfo, 10000); // Mude o intervalo conforme necessário
+        setInterval(fetchGarticInfo, 600); // Mude o intervalo conforme necessário
+            setInterval(atualizarJogadoresOnline, 600); // Atualizar a cada 1 segundo (1000ms)
+    atualizarJogadoresOnline(); // Atualizar imediatamente ao carregar a página
     </script>
 </body>
 
