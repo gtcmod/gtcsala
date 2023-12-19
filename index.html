@@ -45,7 +45,7 @@ table {
     width: 100%;
     max-width: 100%;
     border-collapse: collapse;
-    margin-top: 0.5em;
+    margin-top: 1em;
     border: 3px solid #8B4513;
 }
 
@@ -72,10 +72,10 @@ th {
 }
 
 .avatar {
-    width: 30px;
-    height: 30px;
     margin-right: 0.5em;
     border-radius: 50%;
+    width: 30px;
+    height: 30px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -120,8 +120,12 @@ select {
     }
 
     .player-info {
-        max-width: calc(100% - 30px);
+        max-width: calc(100% - 25px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
+
 
 
     </style>
