@@ -13,123 +13,121 @@
     <style>
         /* Estilos CSS */
         body {
-        font-family: 'Google Sans', sans-serif !important;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        font-size: calc(12px + 2vmin);
-        padding: 1em;
-    }
+            font-family: 'Google Sans', sans-serif !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-size: calc(12px + 2vmin);
+            padding: 1em;
+        }
 
-    h1 {
-        text-align: center;
-        font-size: 24px;
-        margin-top: 20px;
-        color: brown;
-    }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            color: brown;
+        }
 
-    #jogadoresOnline {
-        color: black;
-    }
+        #jogadoresOnline {
+            color: black;
+        }
 
-    footer {
-        text-align: center;
-        font-size: 12px;
-        margin-top: auto;
-    }
+        footer {
+            text-align: center;
+            font-size: 12px;
+            margin-top: auto;
+        }
 
-    table {
-        width: 100%;
-        max-width: 100%;
-        border-collapse: collapse;
-        margin-top: 1em;
-        border: 3px solid #8B4513;
-    }
-
-    th:first-child {
-        width: 10%; /* Ajuste a largura da coluna de posição */
-    }
-
-    td:nth-child(2) {
-        max-width: 60%;
-        word-wrap: break-word;
-    }
-   td:nth-child(3) {
-    min-width: 100px; /* Largura mínima desejada para a coluna de pontos */
-}
-
-    th,
-    td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-        background-color: #FFF;
-    }
-
-    th {
-        background-color: #8B4513;
-        color: #FFF;
-    }
-
-    .avatar {
-        margin-right: 0.5em;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-    .player-info {
-        display: inline-block;
-        vertical-align: middle;
-        max-width: calc(100% - 40px);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    select {
-        font-size: 1em;
-        margin-bottom: 1em;
-        padding: 6px;
-        border: 2px solid brown;
-    }
-
-    #closeBtn {
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-        display: none;
-    }
-
-    @media only screen and (max-width: 600px) {
         table {
             width: 100%;
+            max-width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+            border: 3px solid #8B4513;
+        }
+
+        th:first-child {
+            width: 10%; /* Ajuste a largura da coluna de posição */
+        }
+
+        td:nth-child(2) {
+            max-width: 60%;
+            word-wrap: break-word;
         }
 
         th,
         td {
-            width: auto; /* Remove a largura fixa das células, para se adaptar ao conteúdo */
-            box-sizing: border-box;
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            background-color: #FFF;
+        }
+
+        th {
+            background-color: #8B4513;
+            color: #FFF;
         }
 
         .avatar {
-            width: 40px;
-            height: 40px;
             margin-right: 0.5em;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .player-info {
-            max-width: 100%; /* Ocupa toda a largura disponível */
-            white-space: normal; /* Permite que o texto quebre em várias linhas */
-            overflow: visible;
-            text-overflow: initial;
+            display: inline-block;
+            vertical-align: middle;
+            max-width: calc(100% - 40px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-    }
-</style>
+
+        select {
+            font-size: 1em;
+            margin-bottom: 1em;
+            padding: 6px;
+            border: 2px solid brown;
+        }
+
+        #closeBtn {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* Nova regra CSS para dispositivos com largura de tela menor que 600 pixels */
+        @media only screen and (max-width: 600px) {
+            table {
+                width: 100%;
+            }
+
+            th,
+            td {
+                width: auto; /* Remove a largura fixa das células para se adaptar ao conteúdo */
+                box-sizing: border-box;
+            }
+
+            .avatar {
+                width: 40px;
+                height: 40px;
+                margin-right: 0.5em;
+            }
+
+            .player-info {
+                max-width: 100%; /* Ocupa toda a largura disponível */
+                white-space: normal; /* Permite que o texto quebre em várias linhas */
+                overflow: visible;
+                text-overflow: initial;
+            }
+        }
+    </style>
 
 </head>
 
