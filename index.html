@@ -382,7 +382,10 @@
 
     <script>
     function adjustPointsColumnWidth() {
-    if (window.innerWidth > 600) { // Executa apenas se a largura da janela for maior que 600 pixels
+    var screenWidth = window.innerWidth;
+
+    // Verifica se a tela está entre 600 e 1024 pixels de largura (adapte conforme necessário)
+    if (screenWidth > 600 && screenWidth < 1024) {
         var table = document.getElementById('garticTable');
         var rows = table.getElementsByTagName('tr');
         var maxWidth = 0;
