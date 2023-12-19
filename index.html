@@ -104,15 +104,18 @@
 
         /* Nova regra CSS para dispositivos com largura de tela menor que 600 pixels */
         @media only screen and (max-width: 600px) {
-            table {
-                width: 100%;
-            }
+    table {
+        width: 100%;
+        table-layout: auto; /* Utiliza a largura conforme o conteúdo das células */
+    }
 
-            th,
-            td {
-                width: auto; /* Remove a largura fixa das células para se adaptar ao conteúdo */
-                box-sizing: border-box;
-            }
+    th:first-child {
+        width: 20%; /* Ajusta a largura da coluna de posição para dispositivos móveis */
+    }
+
+    td:nth-child(2) {
+        max-width: 80%; /* Ajusta a largura máxima da coluna de jogadores para dispositivos móveis */
+    }
 
             .avatar {
                 width: 40px;
