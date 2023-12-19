@@ -56,6 +56,9 @@
         max-width: 60%;
         word-wrap: break-word;
     }
+   td:nth-child(3) {
+    min-width: 100px; /* Largura mínima desejada para a coluna de pontos */
+}
 
     th,
     td {
@@ -378,6 +381,23 @@
 <div id="garticLink">Link de Sala: <a id="linkText" href="#" target="_blank">Link de Sala</a></div>
 
     <script>
+    function adjustPointsColumnWidth() {
+    var table = document.getElementById('garticTable');
+    var rows = table.getElementsByTagName('tr');
+    var maxWidth = 0;
+
+    // Encontrar a largura máxima do conteúdo da coluna de jogadores
+    for (var i = 1; i < rows.length; i++) {
+        var playerNameCell = rows[i].getElementsByTagName('td')[1];
+        var playerNameWidth = playerNameCell.clientWidth;
+
+        maxWidth = Math.max(maxWidth, playerNameWidth);
+    }
+
+    // Ajustar a largura da coluna de pontos de acordo com a largura máxima dos nomes dos jogadores
+    var pointsColumn = document.querySelector('#garticTable th:nth-child(3), #garticTable td:nth-child(3)');
+    pointsColumn.style.width = (maxWidth + 20) + 'px'; // Adiciona algum espaço extra
+}
     function atualizarJogadoresOnline() {
             fetch('https://gartic.com.br/request/mobile/ping.php')
                 .then(response => response.json())
@@ -544,6 +564,9 @@
         setInterval(fetchGarticInfo, 600); // Mude o intervalo conforme necessário
             setInterval(atualizarJogadoresOnline, 600); // Atualizar a cada 1 segundo (1000ms)
     atualizarJogadoresOnline(); // Atualizar imediatamente ao carregar a página
+    // Chamar a função para ajustar a largura inicialmente e a cada 500ms (ou quando a janela for redimensionada)
+    adjustPointsColumnWidth();
+    window.addEventListener('resize', adjustPointsColumnWidth);
     </script>
 </body>
 
