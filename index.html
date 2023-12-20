@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -144,230 +145,37 @@
     <h1>Jogadores Online: <span id="jogadoresOnline">Carregando...</span></h1>
     <a href="https://gtcmod.github.io/garticbusc/" style="color: purple; text-decoration: underline;">Clique aqui: Buscador de Jogadores Jogando</a>
     <a href="https://gtcmod.github.io/gtcvet/" style="color: purple; text-decoration: underline;">Clique aqui: Gartic Salas VET</a>
-    <p style="color: brown;">Escolha uma sala:</p>
-    <select id="garticCode" onchange="handleSelectChange()">
-        <option value="">Selecione uma Sala</option>
-<!-- GERAL -->
-<option value="03">GERAL 3</option>
-<option value="05">GERAL 5</option>
-<option value="08">GERAL 9</option>
-<option value="010">GERAL 11</option>
-<option value="012">GERAL 13</option>
-<option value="014">GERAL 15</option>
-<option value="015">GERAL 16</option>
-<option value="017">GERAL 18</option>
-<option value="044">GERAL 21</option>
-<option value="045">GERAL 22</option>
-<option value="046">GERAL 7</option>
-<option value="047">GERAL 17</option>
-<option value="022657">GERAL 23</option>
-<option value="027541">GERAL 24</option>
-<option value="038394720">GERAL 1</option>
-<option value="038394725">GERAL 2</option>
-<option value="038394729">GERAL 4</option>
-<option value="038394732">GERAL 6</option>
-<option value="038394736">GERAL 8</option>
-<option value="038394739">GERAL 10</option>
-<option value="038394741">GERAL 12</option>
-<option value="038394742">GERAL 14</option>
-<option value="038394745">GERAL 19</option>
-<option value="038394746">GERAL 20</option>
-<option value="027542">GERAL 25</option>
-<option value="030960">GERAL 26</option>
-<option value="037197">GERAL 27</option>
-<option value="059774">GERAL 28</option>
-<option value="060131">GERAL 29</option>
-<option value="0156331">GERAL 36</option>
-<option value="0156332">GERAL 37</option>
-<option value="01441917">GERAL 108</option>
-<option value="01482259">GERAL 117</option>
-<option value="01482262">GERAL 118</option>
-<option value="01495485">GERAL 123</option>
-<option value="01495493">GERAL 125</option>
-<option value="01495497">GERAL 126</option>
-<option value="01495505">GERAL 127</option>
-<option value="01495758">GERAL 129</option>
-<option value="01495822">GERAL 132</option>
-<option value="01495983">GERAL 133</option>
-<option value="01495996">GERAL 134</option>
-<option value="01496355">GERAL 143</option>
-<option value="01496372">GERAL 145</option>
-<option value="01496382">GERAL 147</option>
-<option value="019472071">GERAL 148</option>
-<option value="019472077">GERAL 149</option>
-<option value="019472087">GERAL 150</option>
-<option value="019472095">GERAL 151</option>
-<option value="019472099">GERAL 152</option>
-<option value="019472106">GERAL 153</option>
-<option value="019472132">GERAL 154</option>
+<p style="color: brown;">Escolha um tema:</p>
+<select id="themeSelect" onchange="handleThemeSelectChange()">
+    <option value="">Selecione um Tema</option>
+    <option value="GERAL">GERAL</option>
+<option value="OBJETOS">OBJETOS</option>
+<option value="ALIMENTOS">ALIMENTOS</option>
+<option value="ANIMAIS">ANIMAIS</option>
+<option value="VERBOS">VERBOS</option>
+<option value="PROFISSÕES">PROFISSÕES</option>
+<option value="D.A">D.A</option>
+<option value="FILMES">FILMES</option>
+<option value="MINECRAFT">MINECRAFT</option>
+<option value="GOT">GOT</option>
+<option value="BANDEIRAS">BANDEIRAS</option>
+<option value="MUSICA">MÚSICA</option>
+<option value="AVÇ">AVANÇADO</option>
+<option value="ESPANHOL">ESPANHOL</option>
+<option value="CARICATURAS">CARICATURAS</option>
+<option value="HP">HARRY POTTER</option>
+<option value="ITALIANO">ITALIANO</option>
+<option value="INGLES">INGLÊS</option>
+<option value="NOVELA">NOVELAS</option>
+<option value="POKEMON">POKEMON</option>
+<option value="ADJETIVOS">ADJETIVOS</option>
+<option value="MDC">MARVEL E DC</option>
+<option value="GAMES">GAMES</option>
+</select>
 
-<!-- OBJETOS-->
-<option value="023">OBJETOS 1</option>
-<option value="024">OBJETOS 2</option>
-<option value="026">OBJETOS 4</option>
-<option value="028">OBJETOS 6</option>
-<option value="029">OBJETOS 7</option>
-<option value="030">OBJETOS 8</option>
-<option value="0156348">OBJETOS 19</option>
-<option value="0156349">OBJETOS 20</option>
-<option value="01323822">OBJETOS 33</option>
-<option value="01433234">OBJETOS 46</option>
-<option value="01441928">OBJETOS 49</option>
-<option value="01495442">OBJETOS 52</option>
-<option value="08275914">OBJETOS 60</option>
-<option value="08870952">OBJETOS 61</option>
-<option value="08870959">OBJETOS 62</option>
-<option value="08870981">OBJETOS 64</option>
-<option value="015392586">OBJETOS 65</option>
-<option value="015392590">OBJETOS 66</option>
-<option value="018828862">OBJETOS 67</option>
-<option value="018828871">OBJETOS 68</option>
-<option value="018828877">OBJETOS 69</option>
-<option value="018828880">OBJETOS 70</option>
-
-<!-- ALIMENTOS -->
-<option value="032">ALIMENTOS 1</option>
-<option value="011436440">ALIMENTOS 2</option>
-<option value="029617">ALIMENTOS 4</option>
-<option value="011436456">ALIMENTOS 5</option>
-<option value="01482291">ALIMENTOS 34</option>
-<option value="01495597">ALIMENTOS 39</option>
-<option value="08871018">ALIMENTOS 45</option>
-<option value="08871024">ALIMENTOS 46</option>
-<option value="010583457">ALIMENTOS 47</option>
-<option value="010583459">ALIMENTOS 48</option>
-<option value="011436448">ALIMENTOS 3</option>
-<option value="011436462">ALIMENTOS 6</option>
-<option value="011436468">ALIMENTOS 7</option>
-<option value="011436470">ALIMENTOS 8</option>
-<option value="011436483">ALIMENTOS 9</option>
-<option value="011436488">ALIMENTOS 10</option>
-<option value="011436741">ALIMENTOS 43</option>
-<option value="011436744">ALIMENTOS 44</option>
-<option value="015352976">ALIMENTOS 49</option>
-<option value="015352985">ALIMENTOS 50</option>
-<option value="015392408">ALIMENTOS 61</option>
-<option value="015392415">ALIMENTOS 62</option>
-<option value="015392529">ALIMENTOS 63</option>
-<option value="015392541">ALIMENTOS 64</option>
-<option value="019472533">ALIMENTOS 85</option>
-<option value="019472540">ALIMENTOS 86</option>
-<option value="019472552">ALIMENTOS 87</option>
-<option value="019472562">ALIMENTOS 88</option>
-<option value="019474604">ALIMENTOS 101</option>
-<option value="019474618">ALIMENTOS 102</option>
-<option value="019474632">ALIMENTOS 103</option>
-<option value="019474640">ALIMENTOS 104</option>
-
-<!-- ANIMAIS-->
-<option value="033">ANIMAIS 1</option>
-<option value="061314">ANIMAIS 6</option>
-<option value="01383125">ANIMAIS 33</option>
-<option value="01482285">ANIMAIS 34</option>
-<option value="011436131">ANIMAIS 2</option>
-<option value="011436139">ANIMAIS 3</option>
-<option value="011436146">ANIMAIS 4</option>
-<option value="011436155">ANIMAIS 5</option>
-<option value="011436159">ANIMAIS 7</option>
-<option value="011436158">ANIMAIS 8</option>
-<option value="011436189">ANIMAIS 12</option>
-<option value="011436193">ANIMAIS 13</option>
-<option value="011436784">ANIMAIS 43</option>
-<option value="08275850">ANIMAIS 44</option>
-<option value="08871009">ANIMAIS 45</option>
-<option value="011436796">ANIMAIS 46</option>
-<option value="010583449">ANIMAIS 47</option>
-<option value="010583451">ANIMAIS 48</option>
-<option value="015352954">ANIMAIS 49</option>
-<option value="015352967">ANIMAIS 50</option>
-
-<!-- VERBOS -->
-<option value="023340">VERBOS 1</option>
-<option value="064453">VERBOS 2</option>
-<option value="011436709">VERBOS 5</option>
-<option value="064456">VERBOS 3</option>
-<option value="01442892">VERBOS 16</option>
-
-<!-- PROFISSÔES -->
-<option value="0180144">PROFISSÔES 1</option>
-<option value="011436612">PROFISSÔES 2</option>
-<option value="011436645">PROFISSÔES 4</option>
-<option value="011436654">PROFISSÔES 8</option>
-<option value="08141297">PROFISSÔES 9</option>
-<option value="010583436">PROFISSÔES 10</option>
-
-<!-- D.A (Desenhos Animados) -->
-<option value="034">D.A 1</option>
-<option value="035">D.A 2</option>
-<option value="01316875">D.A 7</option>
-<option value="015146618">D.A 10</option>
-<option value="015269596">D.A 12</option>
-<option value="015269602">D.A 13</option>
-<option value="015352879">D.A 15</option>
-<option value="015352887">D.A 16</option>
-
-        <!-- FILMES -->
-<option value="020">FILMES 1</option>
-<option value="021">FILMES 2</option>
-<option value="01316871">FILMES 7</option>
-<option value="01483601">FILMES 14</option>
-
-       <!-- Minecraft -->
-<option value="05312998">MINECRAFT 1</option>
-<option value="05313084">MINECRAFT 3</option>
-
-<!-- Game of Thrones -->
-<option value="05247712">GOT 1</option>
-<option value="05247714">GOT 2</option>
-
-<!-- BANDEIRAS -->
-<option value="053">BANDEIRAS 1</option>
-<option value="032829">BANDEIRAS 2</option>
-
-<!-- MÚSICA -->
-<option value="042463">MUSICA 1</option>
-
-<!-- AVANÇADO -->
-<option value="036">AVÇ 1</option>
-<option value="037">AVÇ 2</option>
-<option value="038">AVÇ 3</option>
-
-<!-- ESPANHOL -->
-<option value="0111150">ESPANHOL 1</option>
-
-<!-- CARICATURAS -->
-<option value="031">CARICATURAS 1</option>
-
-<!-- HARRY POTTER -->
-<option value="0204642">HP 1</option>
-<option value="0368492">HP 2</option>
-
-<!-- ITALIANO -->
-<option value="01254112">ITALIANO 1</option>
-
-<!-- INGLÊS -->
-<option value="059">INGLES 1</option>
-
-<!-- NOVELAS -->
-<option value="0361146">NOVELA 1</option>
-<option value="0368493">NOVELA 2</option>
-
-<!-- POKEMON -->
-<option value="051">POKEMON 1</option>
-<option value="04539464">POKEMON 2</option>
-
-<!-- ADJETIVOS -->
-<option value="024201">ADJETIVOS 1</option>
-
-<!-- MARVEL E DC -->
-<option value="03158864">MDC1</option>
-<option value="03158865">MDC2</option>
-<option value="03161447">MDC4</option>
-
-<!-- GAMES -->
-<option value="055">GAMES 1</option>
-
-
+<p style="color: brown;">Escolha uma sala:</p>
+<select id="garticCode" onchange="handleSelectChange()">
+<option value="">Selecione uma Sala</option>
     </select>
     <button id="closeBtn" onclick="closeRoom()">Fechar Sala</button>
     <table id="garticTable">
@@ -381,6 +189,262 @@
 <div id="garticLink">Link de Sala: <a id="linkText" href="#" target="_blank">Link de Sala</a></div>
 
     <script>
+    /// Mapeamento de temas para salas
+    const temasESalas = {
+        'GERAL': ['03', '05', '08', '010', '012', '014', '015', '017', '044', '045', '046', '047', '022657', '027541', '038394720', '038394725', '038394729', '038394732', '038394736', '038394739', '038394741', '038394742', '038394745', '038394746', '027542', '030960', '037197', '059774', '060131', '0156331', '0156332', '01441917', '01482259', '01482262', '01495485', '01495493', '01495497', '01495505', '01495758', '01495822', '01495983', '01495996', '01496355', '01496372', '01496382', '019472071', '019472077', '019472087', '019472095', '019472099', '019472106', '019472132'],
+        'OBJETOS': ['023', '024', '026', '028', '029', '030', '0156348', '0156349', '01323822', '01433234', '01441928', '01495442', '08275914', '08870952', '08870959', '08870981', '015392586', '015392590', '018828862', '018828871', '018828877', '018828880'],
+        'ALIMENTOS': ['032', '011436440', '029617', '011436456', '015392444', '01495597', '08871018', '08871024', '010583457', '010583459', '011436448', '011436462', '011436468', '011436470', '011436483', '011436488', '011436741', '011436744', '015352976', '015352985', '015392408', '015392415', '015392529', '015392541', '019472533', '019472540', '019472552', '019472562', '019474604', '019474618', '019474632', '019474640'],
+        'ANIMAIS': ['033', '061314', '01383125', '01482285', '011436131', '011436139', '011436146', '011436155', '011436159', '011436158', '011436189', '011436193', '011436784', '08275850', '08871009', '011436796', '010583449', '010583451', '015352954', '015352967'],
+        'VERBOS': ['023340', '064453', '011436709', '064456', '01442892'],
+        'PROFISSÕES': ['0180144', '011436612', '011436645', '011436654', '08141297', '010583436'],
+        'D.A': ['034', '035', '01316875', '015146618', '015269596', '015269602', '015352879', '015352887'],
+        'FILMES': ['020', '021', '01316871', '01483601'],
+        'MINECRAFT': ['05312998', '05313084'],
+        'GOT': ['05247712', '05247714'],
+        'BANDEIRAS': ['053', '032829'],
+        'MUSICA': ['042463'],
+        'AVÇ': ['036', '037', '038'],
+        'ESPANHOL': ['0111150'],
+        'CARICATURAS': ['031'],
+        'HP': ['0204642', '0368492'],
+        'ITALIANO': ['01254112'],
+        'INGLES': ['059'],
+        'NOVELA': ['0361146', '0368493'],
+        'POKEMON': ['051', '04539464'],
+        'ADJETIVOS': ['024201'],
+        'MDC': ['03158864', '03158865', '03161447'],
+        'GAMES': ['055'],
+        
+        // Adicione outros temas e suas salas conforme necessário
+    };
+
+    // Mapeamento de códigos de sala para nomes de sala correspondentes
+    const nomesDasSalas = {
+    '08': 'GERAL 9',
+    '010': 'GERAL 11',
+    '012': 'GERAL 13',
+    '014': 'GERAL 15',
+    '015': 'GERAL 16',
+    '017': 'GERAL 18',
+    '044': 'GERAL 21',
+    '045': 'GERAL 22',
+    '046': 'GERAL 7',
+    '047': 'GERAL 17',
+    '022657': 'GERAL 23',
+    '027541': 'GERAL 24',
+        '038394720': 'GERAL 1',
+    '038394725': 'GERAL 2',
+    '038394729': 'GERAL 4',
+    '038394732': 'GERAL 6',
+    '038394736': 'GERAL 8',
+    '038394739': 'GERAL 10',
+    '038394741': 'GERAL 12',
+    '038394742': 'GERAL 14',
+    '038394745': 'GERAL 19',
+    '038394746': 'GERAL 20',
+    '027542': 'GERAL 25',
+    '030960': 'GERAL 26',
+    '037197': 'GERAL 27',
+    '059774': 'GERAL 28',
+    '060131': 'GERAL 29',
+    '0156331': 'GERAL 36',
+    '0156332': 'GERAL 37',
+    '01441917': 'GERAL 108',
+    '01482259': 'GERAL 117',
+    '01482262': 'GERAL 118',
+    '01495485': 'GERAL 123',
+    '01495493': 'GERAL 125',
+    '01495497': 'GERAL 126',
+    '01495505': 'GERAL 127',
+    '01495758': 'GERAL 129',
+    '01495822': 'GERAL 132',
+    '01495983': 'GERAL 133',
+    '01495996': 'GERAL 134',
+    '01496355': 'GERAL 143',
+    '01496372': 'GERAL 145',
+    '01496382': 'GERAL 147',
+    '019472071': 'GERAL 148',
+    '019472077': 'GERAL 149',
+    '019472087': 'GERAL 150',
+    '019472095': 'GERAL 151',
+    '019472099': 'GERAL 152',
+    '019472106': 'GERAL 153',
+    '019472132': 'GERAL 154',
+    
+    '023': 'OBJETOS 1',
+    '024': 'OBJETOS 2',
+    '026': 'OBJETOS 4',
+    '028': 'OBJETOS 6',
+    '029': 'OBJETOS 7',
+    '030': 'OBJETOS 8',
+    '0156348': 'OBJETOS 19',
+    '0156349': 'OBJETOS 20',
+    '01323822': 'OBJETOS 33',
+    '01433234': 'OBJETOS 46',
+    '01441928': 'OBJETOS 49',
+    '01495442': 'OBJETOS 52',
+    '08275914': 'OBJETOS 60',
+    '08870952': 'OBJETOS 61',
+    '08870959': 'OBJETOS 62',
+    '08870981': 'OBJETOS 64',
+    '015392586': 'OBJETOS 65',
+    '015392590': 'OBJETOS 66',
+    '018828862': 'OBJETOS 67',
+    '018828871': 'OBJETOS 68',
+    '018828877': 'OBJETOS 69',
+    '018828880': 'OBJETOS 70',
+    
+    '032': 'ALIMENTOS 1',
+    '011436440': 'ALIMENTOS 2',
+    '029617': 'ALIMENTOS 4',
+    '011436456': 'ALIMENTOS 5',
+    '015392444': 'ALIMENTOS 34',
+    '01495597': 'ALIMENTOS 39',
+    '08871018': 'ALIMENTOS 45',
+    '08871024': 'ALIMENTOS 46',
+    '010583457': 'ALIMENTOS 47',
+    '010583459': 'ALIMENTOS 48',
+    '011436448': 'ALIMENTOS 3',
+    '011436462': 'ALIMENTOS 6',
+    '011436468': 'ALIMENTOS 7',
+    '011436470': 'ALIMENTOS 8',
+    '011436483': 'ALIMENTOS 9',
+    '011436488': 'ALIMENTOS 10',
+    '011436741': 'ALIMENTOS 43',
+    '011436744': 'ALIMENTOS 44',
+    '015352976': 'ALIMENTOS 49',
+    '015352985': 'ALIMENTOS 50',
+    '015392408': 'ALIMENTOS 61',
+    '015392415': 'ALIMENTOS 62',
+    '015392529': 'ALIMENTOS 63',
+    '015392541': 'ALIMENTOS 64',
+    '019472533': 'ALIMENTOS 85',
+    '019472540': 'ALIMENTOS 86',
+    '019472552': 'ALIMENTOS 87',
+    '019472562': 'ALIMENTOS 88',
+    '019474604': 'ALIMENTOS 101',
+    '019474618': 'ALIMENTOS 102',
+    '019474632': 'ALIMENTOS 103',
+    '019474640': 'ALIMENTOS 104',
+    
+    "033": "ANIMAIS 1",
+    "061314": "ANIMAIS 6",
+    "01383125": "ANIMAIS 33",
+    "01482285": "ANIMAIS 34",
+    "011436131": "ANIMAIS 2",
+    "011436139": "ANIMAIS 3",
+    "011436146": "ANIMAIS 4",
+    "011436155": "ANIMAIS 5",
+    "011436159": "ANIMAIS 7",
+    "011436158": "ANIMAIS 8",
+    "011436189": "ANIMAIS 12",
+    "011436193": "ANIMAIS 13",
+    "011436784": "ANIMAIS 43",
+    "08275850": "ANIMAIS 44",
+    "08871009": "ANIMAIS 45",
+    "011436796": "ANIMAIS 46",
+    "010583449": "ANIMAIS 47",
+    "010583451": "ANIMAIS 48",
+    "015352954": "ANIMAIS 49",
+    "015352967": "ANIMAIS 50",
+    
+    '023340': 'VERBOS 1',
+    '064453': 'VERBOS 2',
+    '011436709': 'VERBOS 5',
+    '064456': 'VERBOS 3',
+    '01442892': 'VERBOS 16',
+    '0180144': 'PROFISSÔES 1',
+    '011436612': 'PROFISSÔES 2',
+    '011436645': 'PROFISSÔES 4',
+    '011436654': 'PROFISSÔES 8',
+    '08141297': 'PROFISSÔES 9',
+    '010583436': 'PROFISSÔES 10',
+    '034': 'D.A 1',
+    '035': 'D.A 2',
+    '01316875': 'D.A 7',
+    '015146618': 'D.A 10',
+    '015269596': 'D.A 12',
+    '015269602': 'D.A 13',
+    '015352879': 'D.A 15',
+    '015352887': 'D.A 16',
+    '020': 'FILMES 1',
+    '021': 'FILMES 2',
+    '01316871': 'FILMES 7',
+    '01483601': 'FILMES 14',
+    '05312998': 'MINECRAFT 1',
+    '05313084': 'MINECRAFT 3',
+    '05247712': 'GOT 1',
+    '05247714': 'GOT 2',
+    '053': 'BANDEIRAS 1',
+    '032829': 'BANDEIRAS 2',
+    '042463': 'MÚSICA 1',
+    '036': 'AVÇ 1',
+    '037': 'AVÇ 2',
+    '038': 'AVÇ 3',
+    '0111150': 'ESPANHOL 1',
+    '031': 'CARICATURAS 1',
+    '0204642': 'HP 1',
+    '0368492': 'HP 2',
+    '01254112': 'ITALIANO 1',
+    '059': 'INGLÊS 1',
+    '0361146': 'NOVELA 1',
+    '0368493': 'NOVELA 2',
+    '051': 'POKEMON 1',
+    '04539464': 'POKEMON 2',
+    '024201': 'ADJETIVOS 1',
+    '03158864': 'MDC1',
+    '03158865': 'MDC2',
+    '03161447': 'MDC4',
+    '055': 'GAMES 1'
+    
+    
+    
+        // Adicione outros códigos de sala e nomes de sala correspondentes conforme necessário
+    };
+
+    function handleThemeSelectChange() {
+        var themeSelect = document.getElementById('themeSelect');
+        var selectedTheme = themeSelect.value;
+        var garticCodeSelect = document.getElementById('garticCode');
+
+        // Limpa o select de salas
+        garticCodeSelect.innerHTML = '<option value="">Selecione uma Sala</option>';
+
+        if (selectedTheme && temasESalas[selectedTheme]) {
+            // Adiciona dinamicamente as salas relacionadas ao tema selecionado
+            temasESalas[selectedTheme].forEach(sala => {
+                var option = document.createElement('option');
+                option.value = sala; // Define o valor do option como o código da sala
+                option.textContent = nomesDasSalas[sala] || sala; // Texto exibido para o usuário
+
+                garticCodeSelect.appendChild(option);
+            });
+        }
+    }
+
+    function addRoomsForTheme(rooms) {
+        var garticCodeSelect = document.getElementById('garticCode');
+
+        rooms.forEach(room => {
+            var option = document.createElement('option');
+            option.value = salasNumeradas[room]; // Pega o número correspondente ao nome da sala
+            option.textContent = room;
+
+            garticCodeSelect.appendChild(option);
+        });
+    }
+
+    function addRoomsForTheme(rooms) {
+        var garticCodeSelect = document.getElementById('garticCode');
+
+        rooms.forEach(room => {
+            var option = document.createElement('option');
+            option.value = room;
+            option.textContent = room;
+
+            garticCodeSelect.appendChild(option);
+        });
+    }
     function adjustPointsColumnWidth() {
     var screenWidth = window.innerWidth;
 
