@@ -1,191 +1,129 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Gartic Salas 2.0</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    h1 {
-  font-size: 36px;
-  color: green;
-  margin-top: 10px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gartic Salas</title>
+    <link rel="icon" href="https://gartic.com.br/imgs/mural/ii/iikyuung/estranho-mundo-de-jack.png" type="image/png">
+    <!-- Importar a fonte do Google Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: 'Google Sans', sans-serif !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-size: calc(12px + 2vmin);
+            padding: 1em;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            color: brown;
+        }
+        #jogadoresOnline {
+            color: black;
+        }
+        footer {
+            text-align: center;
+            font-size: 12px;
+            margin-top: auto;
+        }
+        table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+    border: 3px solid #8B4513;
 }
-
-#jogadoresOnline {
-  font-size: 24px;
-  margin-top: 20px;
-  color: green;
+        th:nth-child(2) {
+    text-align: center;
 }
-
-#valorJogadoresOnline {
-  color: black;
-}
-
-.select-container {
-  display: flex;
-  justify-content: space-around;
-  width: 60%;
-  margin-top: 20px;
-}
-
-select {
-  font-size: 16px;
-  padding: 8px;
-  width: 45%;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 800px;
-  margin-top: 20px;
-  border: 2px solid black;
-}
-
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid black;
-}
-
-th {
-  background-color: green;
-  color: white;
-  font-size: 22px;
-}
-
-.aviso {
-  font-family: 'Roboto', sans-serif;
-  margin-top: -10px;
-  text-align: center;
-  font-size: 24px;
-}
-
-.aviso.verde {
-  color: green !important;
-}
-
-.aviso.vermelho {
-  color: red !important;
-}
-
-.aviso.roxo {
-  color: purple !important;
-}
-
-.link-sala-text {
-  font-family: 'Arial Black', Arial, sans-serif;
-  color: green;
-}
-
-.link-sala-url {
-  color: purple;
-}
-
-.link-sala-container {
-  margin-top: 10px;
-}
-
-/* Ajuste de largura para a coluna de posição, avatar, jogadores e pontos */
-th:first-child,
-td:first-child {
-  width: 1px;
-  border-right: 1px solid black;
-}
-
-th:nth-child(2),
-td:nth-child(2) {
-  width: 1%;
-  white-space: nowrap;
-  border-right: 1px solid black;
-}
-
-th:nth-child(3),
-td:nth-child(3) {
-  max-width: 60px; /* Reduz ainda mais a largura da coluna de jogadores */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Adiciona reticências para indicar texto cortado */
-  border-right: 1px solid black;
-}
-
-th:last-child,
-td:last-child {
-  width: 120px; /* Aumenta um pouco mais a largura da coluna de pontos */
-  border-left: 1px solid black;
-  text-align: center;
-}
-
-/* Evita a quebra de linha dentro da coluna de pontos */
-td:last-child span {
-  white-space: nowrap;
-}
-
-/* Responsividade para dispositivos móveis */
-    @media only screen and (max-width: 768px) {
-      body {
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
-      }
-
-      .select-container {
-        width: 90%;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      select {
+        td:nth-child(2) {
+            max-width: 60%;
+            word-wrap: break-word;
+        }
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            background-color: #FFF;
+        }
+        th {
+            background-color: #8B4513;
+            color: #FFF;
+        }
+        .avatar {
+            margin-right: 0.5em;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .player-info {
+            display: inline-block;
+            vertical-align: middle;
+            max-width: calc(100% - 40px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        select {
+            font-size: 1em;
+            margin-bottom: 1em;
+            padding: 6px;
+            border: 2px solid brown;
+        }
+        #closeBtn {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+        /* Nova regra CSS para dispositivos com largura de tela menor que 600 pixels */
+        @media only screen and (max-width: 600px) {
+    table {
         width: 100%;
-        margin-bottom: 10px;
-      }
-
-      table {
-        overflow-x: auto;
-        max-width: 100%;
-      }
-
-      th, td {
-        font-size: 14px;
-      }
-
-      th:nth-child(3),
-      td:nth-child(3) {
-        max-width: unset;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
+        table-layout: auto; /* Utiliza a largura conforme o conteúdo das células */
     }
-
-    /* Ajuste de zoom para dispositivos com largura menor que 400px */
-    @media only screen and (max-width: 400px) {
-      body {
-        zoom: 0.8; /* Reduz o zoom para telas menores */
-      }
+    th:first-child {
+        width: 20%; /* Ajusta a largura da coluna de posição para dispositivos móveis */
     }
-  </style>
+    td:nth-child(2) {
+        max-width: 80%; /* Ajusta a largura máxima da coluna de jogadores para dispositivos móveis */
+    }
+    th:nth-child(2) {
+        text-align: center; /* Centraliza o texto do cabeçalho da coluna de jogadores para dispositivos móveis */
+    }
+            .avatar {
+                width: 40px;
+                height: 40px;
+                margin-right: 0.5em;
+            }
+            .player-info {
+                max-width: 100%; /* Ocupa toda a largura disponível */
+                white-space: normal; /* Permite que o texto quebre em várias linhas */
+                overflow: visible;
+                text-overflow: initial;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Gartic Salas 2.0</h1>
-  <div id="jogadoresOnline">Jogadores Online: <span id="valorJogadoresOnline">...</span></div>
-
-  
-  <div class="select-container">
-    <select id="temaSelect">
-<option value="">Selecione um Tema</option>
+<h1>Gartic Salas</h1>
+    <!-- Adicionando a parte de jogadores online -->
+    <h1>Jogadores Online: <span id="jogadoresOnline">Carregando...</span></h1>
+    <a href="https://gtcmod.github.io/garticbusc/" style="color: purple; text-decoration: underline;">Clique aqui: Buscador de Jogadores Jogando</a>
+    <a href="https://gtcmod.github.io/gtcvet/" style="color: purple; text-decoration: underline;">Clique aqui: Gartic Salas VET</a>
+<p style="color: brown;">Escolha um tema:</p>
+<select id="themeSelect" onchange="handleThemeSelectChange()">
+    <option value="">Selecione um Tema</option>
     <option value="GERAL">GERAL</option>
 <option value="OBJETOS">OBJETOS</option>
 <option value="ALIMENTOS">ALIMENTOS</option>
@@ -194,9 +132,7 @@ td:last-child span {
 <option value="PROFISSÕES">PROFISSÕES</option>
 <option value="D.A">D.A</option>
 <option value="FILMES">FILMES</option>
-<option value="NARUTO">NARUTO</option>
 <option value="MINECRAFT">MINECRAFT</option>
-<option value="FILMES">LOL</option>
 <option value="GOT">GOT</option>
 <option value="BANDEIRAS">BANDEIRAS</option>
 <option value="MUSICA">MÚSICA</option>
@@ -212,29 +148,52 @@ td:last-child span {
 <option value="MDC">MARVEL E DC</option>
 <option value="GAMES">GAMES</option>
 </select>
-
-    <select id="salasSelect">
-      <option value="">Selecione uma Sala</option>
+<p style="color: brown;">Escolha uma sala:</p>
+<select id="garticCode" onchange="handleSelectChange()">
+<option value="">Selecione uma Sala</option>
     </select>
-  </div>
-
-  <table id="pontuacao">
-    <thead>
-      <tr>
-        <th>Posição</th>
-        <th>Avatar</th>
-        <th>Jogadores</th>
-        <th>Pontos</th>
-      </tr>
-    </thead>
-    <tbody id="tabelaBody"></tbody>
-  </table>
-<div class="aviso" id="avisoSala"></div>
-
-
-  <script>
-      const nomesDasSalas = {
-        '03': 'GERAL 3',
+    <button id="closeBtn" onclick="closeRoom()">Fechar Sala</button>
+    <table id="garticTable">
+        <tr>
+            <th>Posição</th>
+            <th>Jogadores</th>
+            <th>Pontos</th>
+        </tr>
+    </table>
+    <div id="status"></div>
+<div id="garticLink">Link de Sala: <a id="linkText" href="#" target="_blank">Link de Sala</a></div>
+    <script>
+    /// Mapeamento de temas para salas
+    const temasESalas = {
+        'GERAL': ['03', '05', '08', '010', '012', '014', '015', '017', '044', '045', '046', '047', '022657', '027541', '038394720', '038394725', '038394729', '038394732', '038394736', '038394739', '038394741', '038394742', '038394745', '038394746', '027542', '030960', '037197', '059774', '060131', '0156331', '0156332', '01441917', '01482259', '01482262', '01495485', '01495493', '01495497', '01495505', '01495758', '01495822', '01495983', '01495996', '01496355', '01496372', '01496382', '019472071', '019472077', '019472087', '019472095', '019472099', '019472106', '019472132'],
+        'OBJETOS': ['023', '024', '026', '027', '028', '029', '030', '0156348', '0156349', '01323822', '01433234', '01441928', '01495442', '08275914', '08870952', '08870959', '08870981', '015392586', '015392590', '018828862', '018828871', '018828877', '018828880'],
+        'ALIMENTOS': ['032', '011436440', '029617', '011436456', '015392444', '01495597', '08871018', '08871024', '010583457', '010583459', '011436448', '011436462', '011436468', '011436470', '011436483', '011436488', '011436741', '011436744', '015352976', '015352985', '015392408', '015392415', '015392529', '015392541', '019472533', '019472540', '019472552', '019472562', '019474604', '019474618', '019474632', '019474640'],
+        'ANIMAIS': ['033', '061314', '01383125', '01482285', '011436131', '011436139', '011436146', '011436155', '011436159', '011436158', '011436189', '011436193', '011436784', '08275850', '08871009', '011436796', '010583449', '010583451', '015352954', '015352967'],
+        'VERBOS': ['023340', '064453', '011436709', '064456', '01442892'],
+        'PROFISSÕES': ['0180144', '011436612', '011436645', '011436654', '08141297', '010583436'],
+        'D.A': ['034', '035', '01316875', '015146618', '015269596', '015269602', '015352879', '015352887'],
+        'FILMES': ['020', '021', '01316871', '01483601'],
+        'MINECRAFT': ['05312998', '05313084'],
+        'GOT': ['05247712', '05247714'],
+        'BANDEIRAS': ['053', '032829'],
+        'MUSICA': ['042463'],
+        'AVÇ': ['036', '037', '038'],
+        'ESPANHOL': ['0111150'],
+        'CARICATURAS': ['031'],
+        'HP': ['0204642', '0368492'],
+        'ITALIANO': ['01254112'],
+        'INGLES': ['059'],
+        'NOVELA': ['0361146', '0368493'],
+        'POKEMON': ['051', '04539464'],
+        'ADJETIVOS': ['024201'],
+        'MDC': ['03158864', '03158865', '03161447'],
+        'GAMES': ['055'],
+        
+        // Adicione outros temas e suas salas conforme necessário
+    };
+    // Mapeamento de códigos de sala para nomes de sala correspondentes
+    const nomesDasSalas = {
+    '03': 'GERAL 3',
     '05': 'GERAL 5',
     '08': 'GERAL 9',
     '010': 'GERAL 11',
@@ -388,10 +347,8 @@ td:last-child span {
     '021': 'FILMES 2',
     '01316871': 'FILMES 7',
     '01483601': 'FILMES 14',
-    '0204641': 'NARUTO 1',
     '05312998': 'MINECRAFT 1',
     '05313084': 'MINECRAFT 3',
-    '05313011': 'LOL 1',
     '05247712': 'GOT 1',
     '05247714': 'GOT 2',
     '053': 'BANDEIRAS 1',
@@ -415,244 +372,207 @@ td:last-child span {
     '03158865': 'MDC2',
     '03161447': 'MDC4',
     '055': 'GAMES 1'
-      // Adicione outros mapeamentos de nomes de salas aqui...
+    
+    
+    
+        // Adicione outros códigos de sala e nomes de sala correspondentes conforme necessário
     };
-
-    const salas = {
-      'GERAL': ['03', '05', '08', '010', '012', '014', '015', '017', '044', '045', '046', '047', '022657', '027541', '038394720', '038394725', '038394729', '038394732', '038394736', '038394739', '038394741', '038394742', '038394745', '038394746', '027542', '030960', '037197', '059774', '060131', '0156331', '0156332', '01441917', '01482259', '01482262', '01495485', '01495493', '01495497', '01495505', '01495758', '01495822', '01495983', '01495996', '01496355', '01496372', '01496382', '019472071', '019472077', '019472087', '019472095', '019472099', '019472106', '019472132'],
-        'OBJETOS': ['023', '024', '026', '027', '028', '029', '030', '0156348', '0156349', '01323822', '01433234', '01441928', '01495442', '08275914', '08870952', '08870959', '08870981', '015392586', '015392590', '018828862', '018828871', '018828877', '018828880'],
-        'ALIMENTOS': ['032', '011436440', '029617', '011436456', '015392444', '01495597', '08871018', '08871024', '010583457', '010583459', '011436448', '011436462', '011436468', '011436470', '011436483', '011436488', '011436741', '011436744', '015352976', '015352985', '015392408', '015392415', '015392529', '015392541', '019472533', '019472540', '019472552', '019472562', '019474604', '019474618', '019474632', '019474640'],
-        'ANIMAIS': ['033', '061314', '01383125', '01482285', '011436131', '011436139', '011436146', '011436155', '011436159', '011436158', '011436189', '011436193', '011436784', '08275850', '08871009', '011436796', '010583449', '010583451', '015352954', '015352967'],
-        'VERBOS': ['023340', '064453', '011436709', '064456', '01442892'],
-        'PROFISSÕES': ['0180144', '011436612', '011436645', '011436654', '08141297', '010583436'],
-        'D.A': ['034', '035', '01316875', '015146618', '015269596', '015269602', '015352879', '015352887'],
-        'FILMES': ['020', '021', '01316871', '01483601'],
-        'NARUTO': ['0204641'],
-        'MINECRAFT': ['05312998', '05313084'],
-        'LOL': ['05313011'],
-        'GOT': ['05247712', '05247714'],
-        'BANDEIRAS': ['053', '032829'],
-        'MUSICA': ['042463'],
-        'AVÇ': ['036', '037', '038'],
-        'ESPANHOL': ['0111150'],
-        'CARICATURAS': ['031'],
-        'HP': ['0204642', '0368492'],
-        'ITALIANO': ['01254112'],
-        'INGLES': ['059'],
-        'NOVELA': ['0361146', '0368493'],
-        'POKEMON': ['051', '04539464'],
-        'ADJETIVOS': ['024201'],
-        'MDC': ['03158864', '03158865', '03161447'],
-        'GAMES': ['055'],
-      // Adicione outras listas de IDs de salas para diferentes temas aqui...
-    };
-
-
-  const temaSelect = document.getElementById('temaSelect');
-  const salasSelect = document.getElementById('salasSelect');
-
-  temaSelect.addEventListener('change', function() {
-    const temaSelecionado = this.value;
-    while (salasSelect.options.length > 1) {
-      salasSelect.remove(1);
+    function handleThemeSelectChange() {
+        var themeSelect = document.getElementById('themeSelect');
+        var selectedTheme = themeSelect.value;
+        var garticCodeSelect = document.getElementById('garticCode');
+        // Limpa o select de salas
+        garticCodeSelect.innerHTML = '<option value="">Selecione uma Sala</option>';
+        if (selectedTheme && temasESalas[selectedTheme]) {
+            // Adiciona dinamicamente as salas relacionadas ao tema selecionado
+            temasESalas[selectedTheme].forEach(sala => {
+                var option = document.createElement('option');
+                option.value = sala; // Define o valor do option como o código da sala
+                option.textContent = nomesDasSalas[sala] || sala; // Texto exibido para o usuário
+                garticCodeSelect.appendChild(option);
+            });
+        }
     }
-
-    salas[temaSelecionado].forEach(idSala => {
-      const nomeSala = nomesDasSalas[idSala] || `${temaSelecionado} ${idSala}`;
-      const option = document.createElement('option');
-      option.value = idSala;
-      option.textContent = nomeSala;
-      salasSelect.appendChild(option);
-    });
-  });
-
-  salasSelect.addEventListener('change', function() {
-    const salaSelecionada = this.value;
-    const linkSala = `gartic.com.br/${salaSelecionada}`;
-    const avisoSala = document.getElementById('avisoSala');
-    avisoSala.innerHTML = '';
-
-    if (salaSelecionada !== '') {
-      fetch(`https://gartic.com.br/info_sala.php?x=&id_sala=${salaSelecionada}`)
-        .then(response => response.json())
-        .then(data => {
-          const jogadores = data.jogadores || [];
-          const pontos = data.pontos || [];
-
-          const tabelaBody = document.getElementById('tabelaBody');
-          tabelaBody.innerHTML = '';
-
-          for (let i = 0; i < jogadores.length; i++) {
-            const tr = document.createElement('tr');
-
-            const posicao = document.createElement('td');
-            posicao.textContent = (i + 1).toString();
-            tr.appendChild(posicao);
-
-            const jogador = document.createElement('td');
-            jogador.textContent = jogadores[i];
-            tr.appendChild(jogador);
-
-            const ponto = document.createElement('td');
-            ponto.textContent = pontos[i];
-            tr.appendChild(ponto);
-
-            tabelaBody.appendChild(tr);
-          }
-
-
-          const linkElement = document.createElement('p');
-          const linkText = document.createElement('span');
-          linkText.textContent = 'Link da Sala: ';
-          linkText.classList.add('link-sala-text');
-          linkElement.appendChild(linkText);
-
-          const linkUrl = document.createElement('a');
-          linkUrl.textContent = `gartic.com.br/${salaSelecionada}`;
-          linkUrl.href = `https://${linkSala}`;
-          linkUrl.classList.add('link-sala-url');
-          linkElement.appendChild(linkUrl);
-
-          avisoSala.appendChild(linkElement);
-        })
-        .catch(error => {
-          console.error('Ocorreu um erro ao buscar os dados da sala:', error);
+    function addRoomsForTheme(rooms) {
+        var garticCodeSelect = document.getElementById('garticCode');
+        rooms.forEach(room => {
+            var option = document.createElement('option');
+            option.value = salasNumeradas[room]; // Pega o número correspondente ao nome da sala
+            option.textContent = room;
+            garticCodeSelect.appendChild(option);
         });
     }
-  });
-
-  function atualizarJogadoresOnline() {
-    fetch('https://gartic.com.br/request/mobile/ping.php')
-      .then(response => response.json())
-      .then(data => {
-        const jogadoresOnline = data.jogando || 'Valor indisponível';
-        document.getElementById('valorJogadoresOnline').textContent = jogadoresOnline;
-      })
-      .catch(error => {
-        console.error('Ocorreu um erro:', error);
-        document.getElementById('valorJogadoresOnline').textContent = 'Erro ao buscar os jogadores online';
-      });
-  }
-
-  setInterval(atualizarJogadoresOnline, 500);
-
-  function atualizarFotosJogadores() {
-    const tabelaBody = document.getElementById('tabelaBody');
-    const linhas = tabelaBody.getElementsByTagName('tr');
-
-    for (let i = 0; i < linhas.length; i++) {
-      const jogador = linhas[i].getElementsByTagName('td')[1];
-      const nomeJogador = jogador.textContent.trim();
-
-      const avatarJogador = linhas[i].getElementsByTagName('td')[0];
-      const imgJogador = avatarJogador.querySelector('img');
-      imgJogador.src = `https://gartic.com.br/avatar.php?nick=${nomeJogador}`;
+    function addRoomsForTheme(rooms) {
+        var garticCodeSelect = document.getElementById('garticCode');
+        rooms.forEach(room => {
+            var option = document.createElement('option');
+            option.value = room;
+            option.textContent = room;
+            garticCodeSelect.appendChild(option);
+        });
     }
-  }
-
- function atualizarSalaSelecionada() {
-  const salasSelect = document.getElementById('salasSelect');
-  const salaSelecionada = salasSelect.value;
-
-  if (salaSelecionada !== '') {
-    fetch(`https://gartic.com.br/info_sala.php?x=&id_sala=${salaSelecionada}`)
-      .then(response => response.json())
-      .then(data => {
-        const tabelaBody = document.getElementById('tabelaBody');
-        tabelaBody.innerHTML = '';
-
-        const jogadores = data.jogadores || [];
-        const pontos = data.pontos || [];
-
-       for (let i = 0; i < jogadores.length; i++) {
-    const tr = document.createElement('tr');
-
-          // Coluna de Posição
-          const posicaoColumn = document.createElement('td');
-          posicaoColumn.textContent = (i + 1).toString();
-          tr.appendChild(posicaoColumn);
-
-          // Coluna de Avatar
-          const avatarColumn = document.createElement('td');
-          const avatarImage = document.createElement('img');
-          avatarImage.src = `https://gartic.com.br/avatar.php?nick=${jogadores[i]}`;
-          avatarImage.alt = jogadores[i];
-          avatarImage.width = 47;
-          avatarImage.height = 47;
-          avatarImage.style.borderRadius = '50%'; // Deixa a imagem circular
-          avatarColumn.appendChild(avatarImage);
-          tr.appendChild(avatarColumn);
-
- // Coluna de Nome do Jogador
-    const jogador = document.createElement('td');
-    const linkJogador = document.createElement('a');
-    linkJogador.href = `https://gartic.com.br/${jogadores[i]}`;
-    linkJogador.textContent = jogadores[i];
-    linkJogador.target = "_blank"; // Abre o link em uma nova aba
-    jogador.appendChild(linkJogador);
-    tr.appendChild(jogador);
-
-    // Coluna de Pontuação do Jogador
-    const ponto = document.createElement('td');
-    const pontoContainer = document.createElement('span');
-    pontoContainer.textContent = `${pontos[i]} Pontos`;
-    ponto.appendChild(pontoContainer);
-    tr.appendChild(ponto);
-
-    tabelaBody.appendChild(tr);
+    function adjustPointsColumnWidth() {
+    var screenWidth = window.innerWidth;
+    // Verifica se a tela está entre 600 e 1024 pixels de largura (adapte conforme necessário)
+    if (screenWidth > 600 && screenWidth < 1024) {
+        var table = document.getElementById('garticTable');
+        var rows = table.getElementsByTagName('tr');
+        var maxWidth = 0;
+        // Encontrar a largura máxima do conteúdo da coluna de jogadores
+        for (var i = 1; i < rows.length; i++) {
+            var playerNameCell = rows[i].getElementsByTagName('td')[1];
+            var playerNameWidth = playerNameCell.clientWidth;
+            maxWidth = Math.max(maxWidth, playerNameWidth);
         }
-
-const avisoSala = document.getElementById('avisoSala');
-  avisoSala.innerHTML = '';
-
-if (jogadores.length === 0) {
-  const aviso = document.createElement('p');
-  aviso.textContent = 'Não há jogadores nesta sala.';
-  avisoSala.appendChild(aviso);
-  avisoSala.className = 'aviso preto';
-} else if (jogadores.length >= 20) {
-  const aviso = document.createElement('p');
-  aviso.textContent = 'A sala está muito cheia.';
-  avisoSala.appendChild(aviso);
-  avisoSala.className = 'aviso roxo';
-} else if (jogadores.length >= 10) {
-  const aviso = document.createElement('p');
-  aviso.textContent = 'A sala está cheia.';
-  avisoSala.appendChild(aviso);
-  avisoSala.className = 'aviso vermelho';
-} else {
-  const vagasDisponiveis = 10 - jogadores.length;
-  const aviso = document.createElement('p');
-  aviso.textContent = `Há ${vagasDisponiveis === 1 ? '1 vaga disponível' : vagasDisponiveis + ' vagas disponíveis'}.`;
-  avisoSala.appendChild(aviso);
-  avisoSala.className = 'aviso verde';
-        }
-
-        const linkElement = document.createElement('p');
-        const linkText = document.createElement('span');
-        linkText.textContent = 'Link da Sala: ';
-        linkText.classList.add('link-sala-text');
-        linkElement.appendChild(linkText);
-
-        const linkUrl = document.createElement('a');
-        linkUrl.textContent = `gartic.com.br/${salaSelecionada}`;
-        linkUrl.href = `https://${salaSelecionada}`;
-        linkUrl.classList.add('link-sala-url');
-        linkElement.appendChild(linkUrl);
-
-        avisoSala.appendChild(linkElement);
-      })
-      .catch(error => {
-        console.error('Ocorreu um erro ao buscar os dados da sala:', error);
-      });
-  }
+        // Ajustar a largura da coluna de pontos de acordo com a largura máxima dos nomes dos jogadores
+        var pointsColumn = document.querySelector('#garticTable th:nth-child(3), #garticTable td:nth-child(3)');
+        pointsColumn.style.width = (maxWidth + 20) + 'px'; // Adiciona algum espaço extra
+    }
 }
-
-// Chamar a função inicialmente
-atualizarSalaSelecionada();
-
-// Definir o intervalo para chamar a função a cada 0.6 segundos (600 milissegundos)
-setInterval(atualizarSalaSelecionada, 600);
-</script>
+    function atualizarJogadoresOnline() {
+            fetch('https://gartic.com.br/request/mobile/ping.php')
+                .then(response => response.json())
+                .then(data => {
+                    var jogadoresOnline = data.jogando;
+                    var jogadoresOnlineElement = document.getElementById("jogadoresOnline");
+                    if (jogadoresOnline <= 2400) {
+                        jogadoresOnlineElement.style.color = 'black';
+                    } else if (jogadoresOnline <= 3500) {
+                        jogadoresOnlineElement.style.color = 'red';
+                    } else {
+                        jogadoresOnlineElement.style.color = 'purple';
+                    }
+                    jogadoresOnlineElement.textContent = jogadoresOnline;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados:', error);
+                });
+        }
+        
+        function handleSelectChange() {
+            fetchGarticInfo();
+        }
+        function closeRoom() {
+            // Lógica para fechar a sala selecionada
+        }
+       function fetchGarticInfo() {
+    var select = document.getElementById('garticCode');
+    var garticCode = select.value;
+    var playersToAddSymbols = {
+        'keltek': '👑 🏠',
+        'quely': '👑 ⚾️',
+        'rayruim': '👑',
+        'unsenses': '👑🏠',
+        'raypg': '👑 ❤️',
+        'rayi_': '❤️',
+        'mirella_': '👑',
+        'hlozek': '🏠',
+        'banidosemmotivo': '🏠',
+        'imaturidade_': '🐼 ⚾️ 🍓🎈 🐭 🏠',
+        'menina16': '👑',
+        'decenty': '👑 🐼',
+        // Adicione outros jogadores e símbolos conforme necessário
+    };
+    if (garticCode) {
+        var url = 'https://gartic.com.br/info_sala.php?x=&id_sala=' + garticCode;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                var table = document.getElementById('garticTable');
+                var status = document.getElementById('status');
+                var link = document.getElementById('linkText');
+                table.innerHTML = '<tr><th>Posição</th><th>Jogadores</th><th>Pontos</th></tr>';
+                data.jogadores.forEach((jogador, index) => {
+                    var row = table.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    cell1.innerHTML = index + 1;
+                    // Verifica se o jogador está na lista de símbolos e adiciona os símbolos correspondentes
+                    var playerName = jogador.toLowerCase(); // Converter para letras minúsculas
+                    var symbolToAdd = playersToAddSymbols[playerName];
+                    var playerNameWithSymbol = jogador;
+                    if (symbolToAdd) {
+                        playerNameWithSymbol += ' ' + symbolToAdd;
+                    }
+                    cell2.innerHTML = '<div class="player"><img src="https://gartic.com.br/avatar.php?nick=' + jogador + '" class="avatar">' +
+                        '<a href="https://gartic.com.br/' + jogador + '" class="player" target="_blank">' + playerNameWithSymbol + '</a></div>';
+                    cell3.innerHTML = data.pontos[index] + ' pontos';
+                });
+                        var vacancies = 10 - data.jogadores.length;
+                        if (vacancies > 0) {
+                            status.innerHTML = 'Há ' + vacancies + ' vagas disponíveis.';
+                            status.style.color = 'green';
+                        } else if (data.jogadores.length === 10) {
+                            status.innerHTML = 'A sala está cheia.';
+                            status.style.color = 'red';
+                        } else {
+                            status.innerHTML = 'A sala está muito cheia.';
+                            status.style.color = 'purple';
+                        }
+                        link.innerHTML = 'https://gartic.com.br/' + garticCode;
+                        link.href = 'https://gartic.com.br/' + garticCode;
+                        // Atualiza o texto das opções no select com o número de jogadores
+                        updateSelectOptions(data.salas);
+                    })
+                    .catch((error) => {
+                        console.error('Erro:', error);
+                    });
+            }
+        }
+        function openRoomLink() {
+            var garticCode = document.getElementById('garticCode').value;
+            window.open('https://gartic.com.br/' + garticCode, '_blank');
+        }
+        function updateSelectOptions(salas) {
+            var select = document.getElementById('garticCode');
+            // Ordena as salas ativas no começo e com base na quantidade de jogadores
+            salas.sort((a, b) => {
+                var playersA = a.jogadores.length;
+                var playersB = b.jogadores.length;
+                return playersB - playersA;
+            });
+            // Remove todas as opções atuais do select
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            // Adiciona as opções atualizadas no select
+            salas.forEach(sala => {
+                var option = document.createElement('option');
+                option.value = sala.id;
+                option.innerHTML = sala.nome + ' (' + sala.total_jogadores + ')';
+                // Adiciona classe de estilo com base na quantidade de jogadores
+                if (sala.jogadores.length >= 10) {
+                    option.classList.add('ten-or-more-players');
+                } else {
+                    option.classList.add('less-than-ten-players');
+                }
+                select.appendChild(option);
+            });
+        }
+        // Lógica para preenchimento inicial do select com as salas disponíveis
+        var salas = [
+            // Estrutura de salas: { id: 'id_da_sala', nome: 'Nome da Sala', jogadores: [], total_jogadores: numero_total_de_jogadores }
+            // Adicione aqui as salas disponíveis com seus respectivos detalhes
+        ];
+        salas.forEach(sala => {
+            var option = document.createElement('option');
+            option.value = sala.id;
+            option.innerHTML = sala.nome + ' (' + sala.total_jogadores + ')';
+            document.getElementById('garticCode').appendChild(option);
+        });
+        // Inicializa a função fetchGarticInfo para a sala selecionada
+        fetchGarticInfo();
+        // Lógica para atualização automática das informações da sala a cada segundo
+        setInterval(fetchGarticInfo, 600); // Mude o intervalo conforme necessário
+            setInterval(atualizarJogadoresOnline, 600); // Atualizar a cada 1 segundo (1000ms)
+    atualizarJogadoresOnline(); // Atualizar imediatamente ao carregar a página
+    // Chamar a função para ajustar a largura inicialmente e a cada 500ms (ou quando a janela for redimensionada)
+    adjustPointsColumnWidth();
+    window.addEventListener('resize', adjustPointsColumnWidth);
+    </script>
+<p style="color: brown; font-family: 'Google Sans', sans-serif; text-align: center;">
+    Criado para jogadores mobile, desenvolvido por kel.
+</p>
 </body>
 </html>
