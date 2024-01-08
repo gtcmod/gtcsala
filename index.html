@@ -3,125 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gartic Salas</title>
+    <title>Gartic Salas 5.1</title>
     <link rel="icon" href="https://gartic.com.br/imgs/mural/ii/iikyuung/estranho-mundo-de-jack.png" type="image/png">
     <!-- Importar as fonte do Google Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans&display=swap" rel="stylesheet">
     <style>
         /* Estilos CSS */
-        body {
-            font-family: 'Google Sans', sans-serif !important;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            font-size: calc(12px + 2vmin);
-            padding: 1em;
-        }
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            margin-top: 20px;
-            color: brown;
-        }
-        #jogadoresOnline {
-            color: black;
-        }
-        footer {
-            text-align: center;
-            font-size: 12px;
-            margin-top: auto;
-        }
-        table {
-    width: 100%;
-    max-width: 100%;
-    border-collapse: collapse;
-    margin-top: 1em;
-    border: 3px solid #8B4513;
+       body {
+    font-family: 'Google Sans', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: calc(12px + 2vmin);
+    padding: 1em;
+    background-color: #121212; /* Cor de fundo escura */
+    color: #ffffff; /* Cor do texto */
 }
-        th:nth-child(2) {
+
+h1 {
     text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    color: #0288d1; /* Cor do título */
 }
-        td:nth-child(2) {
-            max-width: 60%;
-            word-wrap: break-word;
-        }
-        th,
-        td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-            background-color: #FFF;
-        }
-        th {
-            background-color: #8B4513;
-            color: #FFF;
-        }
-        .avatar {
-            margin-right: 0.5em;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .player-info {
-            display: inline-block;
-            vertical-align: middle;
-            max-width: calc(100% - 40px);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        select {
-            font-size: 1em;
-            margin-bottom: 1em;
-            padding: 6px;
-            border: 2px solid brown;
-        }
-        #closeBtn {
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            display: none;
-        }
-        /* Nova regra CSS para dispositivos com largura de tela menor que 600 pixels */
-        @media only screen and (max-width: 600px) {
+
+#jogadoresOnline {
+    color: #757575;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #888888; /* Cor do texto do rodapé */
+}
+
+table {
+    width: 100%;
+    max-width: 600px; /* Defina a largura máxima da tabela */
+    margin-top: 20px;
+    border: 2px solid #0288d1; /* Cor da borda da tabela */
+    background-color: #212121; /* Cor de fundo da tabela */
+}
+
+th,
+td {
+    border: 1px solid #424242; /* Cor da borda das células */
+    padding: 12px;
+    text-align: left;
+    color: #ffffff; /* Cor do texto das células */
+}
+
+th {
+    background-color: #0288d1; /* Cor de fundo do cabeçalho */
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.player-info {
+    max-width: calc(100% - 50px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+select {
+    font-size: 1em;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #0288d1; /* Cor da borda do select */
+    color: #ffffff; /* Cor do texto do select */
+    background-color: #424242; /* Cor de fundo do select */
+}
+
+#closeBtn {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    display: none;
+    background-color: #0288d1; /* Cor de fundo do botão */
+    color: #ffffff; /* Cor do texto do botão */
+}
+
+/* Nova regra CSS para dispositivos com largura de tela menor que 600 pixels */
+@media only screen and (max-width: 600px) {
     table {
         width: 100%;
-        table-layout: auto; /* Utiliza a largura conforme o conteúdo das células */
+        max-width: none; /* Remova a largura máxima da tabela para dispositivos móveis */
     }
-    th:first-child {
-        width: 20%; /* Ajusta a largura da coluna de posição para dispositivos móveis */
+    th,
+    td {
+        padding: 8px;
     }
-    td:nth-child(2) {
-        max-width: 80%; /* Ajusta a largura máxima da coluna de jogadores para dispositivos móveis */
+    .avatar {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
     }
-    th:nth-child(2) {
-        text-align: center; /* Centraliza o texto do cabeçalho da coluna de jogadores para dispositivos móveis */
+    select {
+        padding: 8px;
     }
-            .avatar {
-                width: 40px;
-                height: 40px;
-                margin-right: 0.5em;
-            }
-            .player-info {
-                max-width: 100%; /* Ocupa toda a largura disponível */
-                white-space: normal; /* Permite que o texto quebre em várias linhas */
-                overflow: visible;
-                text-overflow: initial;
-            }
-        }
+}
     </style>
 </head>
 <body>
-<h1>Gartic Salas</h1>
+<h1>Gartic Salas 5.1</h1>
     <!-- Adicionando a parte de jogadores online -->
     <h1>Jogadores Online: <span id="jogadoresOnline">Carregando...</span></h1>
     <a href="https://gtcmod.github.io/garticbusc/" style="color: purple; text-decoration: underline;">Clique aqui: Buscador de Jogadores Jogando</a>
     <a href="https://gtcmod.github.io/gtcvet/" style="color: purple; text-decoration: underline;">Clique aqui: Gartic Salas VET</a>
-<p style="color: brown;">Escolha um tema:</p>
+<p style="color: red;">Escolha um tema:</p>
 <select id="themeSelect" onchange="handleThemeSelectChange()">
     <option value="">Selecione um Tema</option>
     <option value="GERAL">GERAL</option>
@@ -148,7 +147,7 @@
 <option value="MDC">MARVEL E DC</option>
 <option value="GAMES">GAMES</option>
 </select>
-<p style="color: brown;">Escolha uma sala:</p>
+<p style="color: red;">Escolha uma sala:</p>
 <select id="garticCode" onchange="handleSelectChange()">
 <option value="">Selecione uma Sala</option>
     </select>
@@ -435,9 +434,9 @@
                 .then(data => {
                     var jogadoresOnline = data.jogando;
                     var jogadoresOnlineElement = document.getElementById("jogadoresOnline");
-                    if (jogadoresOnline <= 2400) {
-                        jogadoresOnlineElement.style.color = 'black';
-                    } else if (jogadoresOnline <= 3500) {
+                    if (jogadoresOnline <= 3500) {
+                        jogadoresOnlineElement.style.color = 'blue';
+                    } else if (jogadoresOnline <= 4000) {
                         jogadoresOnlineElement.style.color = 'red';
                     } else {
                         jogadoresOnlineElement.style.color = 'purple';
